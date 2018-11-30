@@ -7,7 +7,6 @@ import { initialData, rootReducer } from "../reducers";
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-
 describe("ações", () => {
     it("retorna o estado inicial", () => {
         expect(rootReducer(undefined,{})).toEqual(initialData);

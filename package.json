@@ -12,6 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@babel/preset-stage-0": "^7.0.0",
     "@zeit/next-workers": "^1.0.0",
     "cross-fetch": "^2.2.3",
     "express": "^4.16.4",
@@ -28,6 +29,7 @@
     "worker-loader": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
