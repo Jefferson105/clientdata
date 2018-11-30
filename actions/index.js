@@ -5,7 +5,7 @@ export const getData = () => {
         dispatch({ type: SHOW_LOADING });
 
         let worker = new Worker("/static/workers/handleData.worker.js");
-        worker.postMessage("fire!");
+        worker.postMessage({});
 
         worker.onmessage = ({ data }) => {
             if(data.error) {

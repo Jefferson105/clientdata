@@ -23,11 +23,14 @@ class Index extends React.Component {
                         <Loading src="/static/loading.svg" /> :
                         error ?
                             <p>{error}</p> :
-                            <List>
-                                { 
-                                    Object.entries(data).map((val, i) => <Item key={i} i={i} val={val} length={Object.keys(data).length} />) 
-                                }
-                            </List>
+                            <React.Fragment>
+                                <h2 style={{ textAlign: "center", margin: "1rem 0" }}>Clique nos boxes abaixo</h2>
+                                <List>
+                                    { 
+                                        Object.entries(data).map((val, i) => <Item key={i} i={i} val={val} length={Object.keys(data).length} />) 
+                                    }
+                                </List>
+                            </React.Fragment>
 
                 }
             </React.Fragment>
