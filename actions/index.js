@@ -1,5 +1,7 @@
 import { SHOW_LOADING, HIDE_LOADING, SET_DATA, SET_ERROR } from "./actionTypes";
 
+import Data from "../utils/fetchAndHandleData";
+
 export const getData = () => {
     return async dispatch => {
         dispatch({ type: SHOW_LOADING });
@@ -9,7 +11,8 @@ export const getData = () => {
 
         worker.onmessage = ({ data }) => {
             if(data.error) {
-                dispatch({ type: SET_ERROR, data: "Ocorreu um erro. Recarregue a página." });
+                dispatch(getDataWithoutWorker());
+                return;
             }else {
                 dispatch({ type: SET_DATA, data: data.data });
             }
@@ -20,9 +23,22 @@ export const getData = () => {
         };
 
         worker.onerror = () => {
-            dispatch({ type: SET_ERROR, data: "Ocorreu um erro. Recarregue a página." });
-            dispatch({ type: HIDE_LOADING });
+            dispatch(getDataWithoutWorker());
             worker.terminate();
         };
+    };
+};
+
+export const getDataWithoutWorker = () => {
+    return async dispatch => {
+        try {
+            let data = await Data();
+
+            dispatch({ type: SET_DATA, data });
+        }catch(err) {
+            dispatch({ type: SET_ERROR, data: "Ocorreu um erro. Recarregue a página." });
+        }
+
+        dispatch({ type: HIDE_LOADING });
     };
 };

@@ -36,8 +36,8 @@ self.onmessage = async () => {
             return ac;
         }, {});
     
-        postMessage({ data });
+        self.postMessage({ data });
     }catch(error) {
-        postMessage({ error });
+        self.postMessage({ error: "Erro no webworker." });
     }
 };
