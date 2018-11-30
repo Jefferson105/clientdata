@@ -1,0 +1,41 @@
+{
+  "name": "client-transaction",
+  "version": "1.0.0",
+  "description": "Get client info",
+  "main": "index.js",
+  "author": "Jefferson Barbosa",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index",
+    "build": "NODE_ENV=production ./node_modules/.bin/next build",
+    "buildHtml": "NODE_ENV=production ./node_modules/.bin/next build && ./node_modules/.bin/next export",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@zeit/next-workers": "^1.0.0",
+    "cross-fetch": "^2.2.3",
+    "express": "^4.16.4",
+    "next": "^7.0.2",
+    "next-redux-wrapper": "^2.0.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-redux": "^5.1.1",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.0.3",
+    "worker-loader": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.9.0",
+    "eslint-plugin-class-property": "^1.1.0",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "next-eslint": "^0.0.4",
+    "redux-mock-store": "^1.5.3"
+  }
+}
